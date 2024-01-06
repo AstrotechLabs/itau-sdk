@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto;
 
 use JsonSerializable;

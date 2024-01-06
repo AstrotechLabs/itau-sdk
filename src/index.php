@@ -3,8 +3,8 @@
 
 declare(strict_types=1);
 
-use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\InputData;
 use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Value;
+use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\InputData;
 
 error_reporting(E_ALL & ~E_DEPRECATED);
 
@@ -31,4 +31,3 @@ $inputData = new InputData(
 $response = $itauGateway->createImmediateQRCode($inputData);
 
 print_r($response);
-

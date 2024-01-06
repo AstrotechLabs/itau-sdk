@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto;
 
-use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\ItauIssueImmediateQRCodeException;
 use JsonSerializable;
+use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\ItauIssueImmediateQRCodeException;
 
 class Debtor implements JsonSerializable
 {

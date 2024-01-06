@@ -6,15 +6,15 @@ namespace Tests\Integration\ImmediateQRCode;
 
 use Tests\TestCase;
 use Tests\Trait\HttpClientMock;
-use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\AdditionalInformationCollection;
-use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Calendar;
-use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Debtor;
-use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Information;
 use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Loc;
 use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Value;
+use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Debtor;
+use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Calendar;
 use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\InputData;
+use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\Information;
 use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\IssueImmediateQRCode;
 use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\ItauIssueImmediateQRCodeException;
+use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\AdditionalInformationCollection;
 
 class IssueImmediateQRCodeTest extends TestCase
 {

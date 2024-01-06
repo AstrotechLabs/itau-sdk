@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto;
 
 use AstrotechLabs\Itau\Shared\Utils\CollectionBase;
@@ -14,10 +16,10 @@ class AdditionalInformationCollection extends CollectionBase
     public function toArray(): array
     {
         $items = get_object_vars($this);
-        $volumes = [];
+        $informations = [];
         foreach ($items['items'] as $key => $item) {
-            $volumes[$key] = $item->toArray();
+            $informations[$key] = $item->toArray();
         }
-        return $volumes;
+        return $informations;
     }
 }

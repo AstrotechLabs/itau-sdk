@@ -24,7 +24,7 @@ final class IssueImmediateQRCode
             [
                 'base_uri' => $this->isSandbox ?
                     'https://sandbox.devportal.itau.com.br' :
-                    ' https://secure.api.itau'
+                    'https://secure.api.itau'
             ]
         );
     }

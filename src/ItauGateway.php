@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace AstrotechLabs\Itau;
 
-use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\InputData as IssueImmediateQRCodeInput;
 use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\IssueImmediateQRCode;
+use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\InputData as IssueImmediateQRCodeInput;
 
 final class ItauGateway
 {
