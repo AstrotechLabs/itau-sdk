@@ -38,8 +38,8 @@ class Debtor implements JsonSerializable
     {
         return array_filter([
             "nome" => $this->name,
-            "cpf" => $this->cpf,
-            "cnpj" => $this->cnpj
+            "cpf" => preg_replace('/[^0-9]/', '', $this->cpf),
+            "cnpj" => preg_replace('/[^0-9]/', '', $this->cnpj)
         ]);
     }
 
