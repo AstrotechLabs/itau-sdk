@@ -28,7 +28,7 @@ class InputData implements JsonSerializable
             "chave" => $this->pixKey,
             "solicitacaoPagador" => $this->payerRequest,
             "infoAdicionais" => $this->additionalInformation?->toArray()
-        ]);
+        ], fn($value) =>  !is_null($value));
     }
 
     public function jsonSerialize(): array

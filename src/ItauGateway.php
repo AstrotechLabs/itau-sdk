@@ -33,7 +33,7 @@ final class ItauGateway
         ];
     }
 
-    public function createImmediateQRCode(InputData $inputData)
+    public function createPixCharge(InputData $inputData)
     {
         $immediateQRCode = new IssueImmediateQRCode(
             httpClient: $this->httpClient,

@@ -44,7 +44,7 @@ $inputData = new InputData(
     value: $valueInput,
     pixKey: "60701190000104",
 );
-$response = $itauGateway->createImmediateQRCode($inputData);
+$response = $itauGateway->createPixCharge($inputData);
 
 print_r($response);
 ```

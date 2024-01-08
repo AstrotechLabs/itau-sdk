@@ -8,10 +8,10 @@ services:
     volumes:
       - ./:/app
     networks:
-      - melhorenvio-network
+      - itau-network
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
 networks:
-  melhorenvio-network:
+  itau-network:
     driver: bridge

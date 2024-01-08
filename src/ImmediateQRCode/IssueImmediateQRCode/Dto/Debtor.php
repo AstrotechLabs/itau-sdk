@@ -12,8 +12,8 @@ class Debtor implements JsonSerializable
     public function __construct(
         public readonly string $name,
         public readonly bool $isPf = false,
-        public readonly string $cpf = '',
-        public readonly string $cnpj = '',
+        public string $cpf = '',
+        public string $cnpj = '',
     ) {
         if ($this->isPf && empty($this->cpf)) {
             throw new ItauIssueImmediateQRCodeException(
@@ -32,15 +32,24 @@ class Debtor implements JsonSerializable
                 responsePayload: []
             );
         }
+
+        $this->cpf = preg_replace('/[^0-9]/', '', $this->cpf);
+        $this->cnpj = preg_replace('/[^0-9]/', '', $this->cnpj);
     }
 
     public function toArray(): array
     {
-        return array_filter([
+        $data = [
             "nome" => $this->name,
-            "cpf" => preg_replace('/[^0-9]/', '', $this->cpf),
-            "cnpj" => preg_replace('/[^0-9]/', '', $this->cnpj)
-        ]);
+            "cnpj" => $this->cnpj
+        ];
+
+        if ($this->isPf) {
+            unset($data['cnpj']);
+            array_push($data['cpf']);
+        }
+
+        return $data;
     }
 
     public function jsonSerialize(): array
