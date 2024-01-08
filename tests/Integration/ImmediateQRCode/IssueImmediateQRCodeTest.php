@@ -37,12 +37,12 @@ class IssueImmediateQRCodeTest extends TestCase
 
         $response = $gateway->createPixCharge($inputData);
 
-        $this->assertNotEmpty($response->txid);
-        $this->assertNotEmpty($response->status);
-        $this->assertEquals('ATIVA', $response->status);
-        $this->assertNotEmpty($response->pixKey);
-        $this->assertNotEmpty($response->pixCopyAndPaste);
-        $this->assertNotEmpty($response->value);
+        $this->assertNotEmpty($response['txid']);
+        $this->assertNotEmpty($response['status']);
+        $this->assertEquals('ATIVA', $response['status']);
+        $this->assertNotEmpty($response['pixKey']);
+        $this->assertNotEmpty($response['pixCopyAndPaste']);
+        $this->assertNotEmpty($response['value']);
     }
 
     public function testMustReturnTheInformationAfterIssuingTheQrCodeWithAllFieldsFilledIn()
@@ -82,12 +82,12 @@ class IssueImmediateQRCodeTest extends TestCase
 
         $response = $gateway->createPixCharge($inputData);
 
-        $this->assertNotEmpty($response->txid);
-        $this->assertNotEmpty($response->status);
-        $this->assertEquals('ATIVA', $response->status);
-        $this->assertNotEmpty($response->pixKey);
-        $this->assertNotEmpty($response->pixCopyAndPaste);
-        $this->assertNotEmpty($response->value);
+        $this->assertNotEmpty($response['txid']);
+        $this->assertNotEmpty($response['status']);
+        $this->assertEquals('ATIVA', $response['status']);
+        $this->assertNotEmpty($response['pixKey']);
+        $this->assertNotEmpty($response['pixCopyAndPaste']);
+        $this->assertNotEmpty($response['value']);
     }
 
     public function testReturnAnErrorWhenThePixKeyIsIncorrect()
