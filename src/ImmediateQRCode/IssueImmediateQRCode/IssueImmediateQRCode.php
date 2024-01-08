@@ -19,7 +19,7 @@ final class IssueImmediateQRCode
     ) {
     }
 
-    public function issued(InputData $input): OutputData
+    public function issue(InputData $input): OutputData
     {
 
         $uri = $this->isSandbox ? "/itau-ep9-gtw-pix-recebimentos-ext-v2/v2/cob" : "/pix_recebimentos/v2/cob";
@@ -31,6 +31,15 @@ final class IssueImmediateQRCode
             ]);
 
             $responsePayload = json_decode($response->getBody()->getContents(), true);
+
+            return new OutputData(
+                txid: $responsePayload['txid'],
+                status:  $responsePayload['status'],
+                pixKey: $responsePayload['chave'],
+                pixCopyAndPaste: $responsePayload['pixCopiaECola'],
+                value: (float)$responsePayload['valor']['original'],
+                payloadDetails: $responsePayload
+            );
         } catch (
             ClientException
             | ServerException
@@ -54,15 +63,5 @@ final class IssueImmediateQRCode
                 responsePayload: [],
             );
         }
-
-        return new OutputData(
-            txid: $responsePayload['txid'],
-            status:  $responsePayload['status'],
-            pixKey: $responsePayload['chave'],
-            pixCopyAndPaste: $responsePayload['pixCopiaECola'],
-            value: (float)$responsePayload['valor']['original'],
-            payloadDetails: $responsePayload
-        );
     }
-
 }

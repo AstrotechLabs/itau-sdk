@@ -40,6 +40,6 @@ final class ItauGateway
             headers: $this->headers,
             isSandbox: $this->isSandbox
         );
-        return $immediateQRCode->issued($inputData)->toArray();
+        return $immediateQRCode->issue($inputData)->toArray();
     }
 }

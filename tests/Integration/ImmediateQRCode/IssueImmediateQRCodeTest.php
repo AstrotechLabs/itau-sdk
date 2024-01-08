@@ -20,7 +20,7 @@ class IssueImmediateQRCodeTest extends TestCase
 {
     use HttpClientMock;
 
-    public function testMustReturnTheInformationAfterIssuingTheQrCodeWithTheMinimumNumberOfFieldsFilledIn()
+    public function testReceivesQrCodeInfoWhenIssuingQrCodeWithMinimumFields()
     {
         $gateway = new ItauGateway(
             accessToken: $_ENV['ITAU_API_TOKEN'],
@@ -45,7 +45,7 @@ class IssueImmediateQRCodeTest extends TestCase
         $this->assertNotEmpty($response['value']);
     }
 
-    public function testMustReturnTheInformationAfterIssuingTheQrCodeWithAllFieldsFilledIn()
+    public function testMustReceivesTheInformationAfterIssuingTheQrCodeWithAllFieldsFilledIn()
     {
         $gateway = new ItauGateway(
             accessToken: $_ENV['ITAU_API_TOKEN'],
@@ -90,7 +90,7 @@ class IssueImmediateQRCodeTest extends TestCase
         $this->assertNotEmpty($response['value']);
     }
 
-    public function testReturnAnErrorWhenThePixKeyIsIncorrect()
+    public function testReceivesAnErrorWhenThePixKeyIsIncorrect()
     {
         $this->expectException(ItauIssueImmediateQRCodeException::class);
         $this->expectExceptionMessage('O campo cob.chave não respeita o schema.');
@@ -113,7 +113,7 @@ class IssueImmediateQRCodeTest extends TestCase
         $gateway->createPixCharge($inputData);
     }
 
-    public function testReturnAnErrorWhenTheTokenIsInvalid()
+    public function testReceivesAnErrorWhenTheTokenIsInvalid()
     {
         $this->expectException(ItauIssueImmediateQRCodeException::class);
         $this->expectExceptionMessage('Access Denied');
