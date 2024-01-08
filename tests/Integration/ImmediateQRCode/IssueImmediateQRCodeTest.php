@@ -18,8 +18,6 @@ use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\AdditionalInform
 
 class IssueImmediateQRCodeTest extends TestCase
 {
-    use HttpClientMock;
-
     public function testReceivesQrCodeInfoWhenIssuingQrCodeWithMinimumFields()
     {
         $gateway = new ItauGateway(
