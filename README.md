@@ -85,3 +85,13 @@ Saída
         ]
 ]
 ```
+
+## Contributing
+
+Pull Request são bem-vindos. Para mudanças importantes, abra primeiro uma issue para discutir o que você gostaria de mudar.
+
+Certifique-se de atualizar os testes conforme apropriado.
+
+## License
+
+Este pacote é lançado sob a licença [MIT](https://choosealicense.com/licenses/mit/). Consulte o pacote [LICENSE](./LICENSE) para obter detalhes.

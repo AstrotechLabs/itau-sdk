@@ -12,36 +12,21 @@ use AstrotechLabs\Itau\ImmediateQRCode\IssueImmediateQRCode\Dto\OutputData;
 
 final class IssueImmediateQRCode
 {
-    private Client $httpClient;
-
     public function __construct(
-        private readonly string $accessToken,
-        private readonly string $apiKey,
+        private readonly Client $httpClient,
+        private readonly array $headers,
         private readonly bool $isSandbox = false
     ) {
-
-        $this->httpClient = new Client(
-            [
-                'base_uri' => $this->isSandbox ?
-                    'https://sandbox.devportal.itau.com.br' :
-                    'https://secure.api.itau'
-            ]
-        );
     }
 
     public function issued(InputData $input): OutputData
     {
-        $headers = [
-            'x-itau-apikey' => $this->apiKey,
-            'Content-Type' => 'application/json',
-            'Authorization' => "Bearer {$this->accessToken}"
-        ];
 
         $uri = $this->isSandbox ? "/itau-ep9-gtw-pix-recebimentos-ext-v2/v2/cob" : "/pix_recebimentos/v2/cob";
 
         try {
             $response = $this->httpClient->post(uri:$uri, options:[
-                'headers' => $headers,
+                'headers' => $this->headers,
                 'json' => $input->toArray()
             ]);
 
