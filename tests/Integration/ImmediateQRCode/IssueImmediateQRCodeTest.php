@@ -45,7 +45,7 @@ class IssueImmediateQRCodeTest extends TestCase
         $this->assertNotEmpty($response['value']);
     }
 
-    public function testMustReceivesTheInformationAfterIssuingTheQrCodeWithAllFieldsFilledIn()
+    public function testReceivesTheInformationAfterIssuingTheQrCodeWithAllFieldsFilledIn()
     {
         $gateway = new ItauGateway(
             accessToken: $_ENV['ITAU_API_TOKEN'],
